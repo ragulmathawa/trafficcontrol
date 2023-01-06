@@ -42,7 +42,7 @@ fi
 # This is considerably slower, but allows for building on hosts without docker-compose.
 if [ ${#COMPOSECMD[@]} -eq 0 ]; then
 	# Pin the version of docker-compose.
-	IMAGE="docker/compose:1.11.2"
+	IMAGE="docker/compose:1.29.2"
 
 	# We need to either mount the docker socket or export the docker host into the container.
 	# This allows the container to manage "sibling" containers via docker.
@@ -224,7 +224,7 @@ fi
 
 # Create the dist directory if it does not exist.
 mkdir -p dist
-
+set -x
 # Build each project in turn.
 badproj=""
 while (( "$#" )); do
